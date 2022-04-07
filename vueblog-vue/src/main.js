@@ -9,6 +9,9 @@ import mavonEditor from 'mavon-editor'
 
 import "element-ui/lib/theme-chalk/index.css"
 import 'mavon-editor/dist/css/index.css'
+// global css
+import './assets/styles/index.scss'
+
 
 import "./axios"
 import "./permission"

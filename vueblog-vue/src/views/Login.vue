@@ -1,25 +1,24 @@
 <template>
-  <div>
+  <div class="login" :style="'background-image:url('+ Background +');'">
+
+
 
     <el-container>
-      <el-header>
-        <img class="mlogo" src="https://www.markerhub.com/dist/images/logo/markerhub-logo.png" alt="">
+      <el-header style="height: 100px;">
+        <img class="mlogo" src="@/assets/images/banner-school.png">
+        <img class="appname" src="@/assets/images/banner-text.png">
       </el-header>
       <el-main>
-        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+        <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-position="left" label-width="0px" class="login-form">
+          <h3>
+            学生成绩后台管理系统
+          </h3>
           <el-form-item label="用户名" prop="username">
-            <el-input v-model="ruleForm.username"></el-input>
-          </el-form-item>
-          <el-form-item label="密码" prop="password">
-            <el-input type="password" v-model="ruleForm.password"></el-input>
-          </el-form-item>
-
-          <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
-            <el-button @click="resetForm('ruleForm')">重置</el-button>
+            <el-input v-model="ruleForm.username" type="text" auto-complete="off" placeholder="账号">
+              <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />
+            </el-input>
           </el-form-item>
         </el-form>
-
       </el-main>
     </el-container>
 
@@ -27,10 +26,13 @@
 </template>
 
 <script>
+  import Background from '@/assets/images/bg.png'
+
   export default {
     name: "Login",
     data() {
       return {
+        Background: Background,
         ruleForm: {
           username: 'markerhub',
           password: '111111'
@@ -80,49 +82,43 @@
   }
 </script>
 
-<style scoped>
+<style rel="stylesheet/scss" lang="scss">
   .el-header, .el-footer {
-    background-color: #B3C0D1;
+    background-color: #ffffff;
     color: #333;
     text-align: center;
-    line-height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-size: cover;
   }
 
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
+  .login-form {
+    border-radius: 6px;
+    background: #ffffff;
     text-align: center;
-    line-height: 200px;
+    width: 400px;
+    margin: auto;
+    padding: 25px 25px 5px 25px;
   }
 
-  .el-main {
-    /*background-color: #E9EEF3;*/
-    color: #333;
-    text-align: center;
-    line-height: 160px;
-  }
-
-  body > .el-container {
-    margin-bottom: 40px;
-  }
-
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-  }
-
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
-  }
 
   .mlogo {
-    height: 60%;
-    margin-top: 10px;
+    margin-top: 30px;
   }
 
-  .demo-ruleForm {
-    max-width: 500px;
-    margin: 0 auto;
-  }
+  .appname {
+     margin-top: 35px;
+     margin-left: 20px;
+   }
+
+
 
 </style>

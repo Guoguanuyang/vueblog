@@ -4,9 +4,8 @@
   </div>
 </template>
 
-<style>
-  #app {
-    max-width: 960px;
-    margin: 0 auto;
+<script>
+  export default {
+    name: 'App'
   }
-</style>
+</script>
